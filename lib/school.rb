@@ -6,11 +6,15 @@ class School
 
   def initialize(name)
     @name = name 
-    @roster = {}
+    @roster = {9 => [kyle]}
   end 
 
   def add_student(student, grade)
-    @roster[grade] = student 
+    if @roster.has_key?(grade)
+      @roster[grade]<< student
+    else 
+      @roster[grade] = student.to_a 
+    end 
   end 
   
 end 
